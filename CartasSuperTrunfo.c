@@ -9,6 +9,8 @@ typedef struct {
     float area;
     float pib;
     int pontos_turisticos;
+    float densidade_populacional;
+    float pib_per_capita;
 } Cidade;
 
 void cadastrarCartas(Cidade cartas[NUM_ESTADOS * CIDADES_POR_ESTADO]) {
@@ -27,6 +29,20 @@ void cadastrarCartas(Cidade cartas[NUM_ESTADOS * CIDADES_POR_ESTADO]) {
             scanf("%f", &cartas[index].pib);
             printf("Número de pontos turísticos: ");
             scanf("%d", &cartas[index].pontos_turisticos);
+            
+            // Cálculo das propriedades adicionais
+            if (cartas[index].area > 0) {
+                cartas[index].densidade_populacional = cartas[index].populacao / cartas[index].area;
+            } else {
+                cartas[index].densidade_populacional = 0;
+            }
+            
+            if (cartas[index].populacao > 0) {
+                cartas[index].pib_per_capita = cartas[index].pib / cartas[index].populacao;
+            } else {
+                cartas[index].pib_per_capita = 0;
+            }
+            
             index++;
         }
     }
@@ -40,6 +56,8 @@ void exibirCartas(Cidade cartas[NUM_ESTADOS * CIDADES_POR_ESTADO]) {
         printf("Área: %.2f km^2\n", cartas[i].area);
         printf("PIB: %.2f milhões\n", cartas[i].pib);
         printf("Pontos turísticos: %d\n", cartas[i].pontos_turisticos);
+        printf("Densidade Populacional: %.2f hab/km^2\n", cartas[i].densidade_populacional);
+        printf("PIB per Capita: %.2f milhões/hab\n", cartas[i].pib_per_capita);
     }
 }
 
