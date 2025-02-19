@@ -1,18 +1,18 @@
-#include <stdio.h>
-
-#include <stdio.h>
+#include <stdio.h>  // Biblioteca padrão para entrada e saída de dados
 
 int main() {
-    // Declaração das variáveis para a primeira carta
-    char estado1;
-    char codigo1[4];
-    char cidade1[50];
-    int populacao1;
-    float area1;
-    double pib1;
-    int pontos_turisticos1;
+    // DECLARAÇÃO DAS VARIÁVEIS
 
-    // Declaração das variáveis para a segunda carta
+    // Variáveis para armazenar os dados da primeira carta
+    char estado1;             // Armazena a letra do estado (A-H)
+    char codigo1[4];          // Código da carta (ex: A01)
+    char cidade1[50];         // Nome da cidade
+    int populacao1;           // População da cidade
+    float area1;              // Área da cidade em km²
+    double pib1;              // PIB da cidade em bilhões
+    int pontos_turisticos1;   // Número de pontos turísticos
+
+    // Variáveis para armazenar os dados da segunda carta
     char estado2;
     char codigo2[4];
     char cidade2[50];
@@ -21,42 +21,57 @@ int main() {
     double pib2;
     int pontos_turisticos2;
 
-    // Entrada de dados da primeira carta
+    // ==============================
+    // ENTRADA DE DADOS - CARTA 1
+    // ==============================
     printf("Digite os dados da primeira carta:\n");
+
+    // Estado (apenas uma letra entre A e H)
     printf("Estado (A-H): ");
     scanf(" %c", &estado1);
-    
+
+    // Código da carta (ex: A01, B02)
     printf("Código da Carta (ex: A01): ");
     scanf("%s", codigo1);
-    
-    while (getchar() != '\n'); // Limpa o buffer do teclado
 
+    // Limpeza do buffer do teclado antes de ler a string completa
+    while (getchar() != '\n');
+
+    // Nome da cidade (lê até encontrar uma quebra de linha)
     printf("Nome da Cidade: ");
     scanf("%[^\n]", cidade1);
 
+    // População da cidade
     printf("População: ");
     scanf("%d", &populacao1);
 
+    // Área em km²
     printf("Área (km²): ");
     scanf("%f", &area1);
 
+    // PIB em bilhões (double para maior precisão)
     printf("PIB (em bilhões): ");
     scanf("%lf", &pib1);
 
+    // Número de pontos turísticos
     printf("Número de Pontos Turísticos: ");
     scanf("%d", &pontos_turisticos1);
 
-    while (getchar() != '\n'); // Limpa o buffer do teclado antes da próxima leitura
+    // Limpeza do buffer do teclado antes de ler a próxima string
+    while (getchar() != '\n');
 
-    // Entrada de dados da segunda carta
+    // ==============================
+    // ENTRADA DE DADOS - CARTA 2
+    // ==============================
     printf("\nDigite os dados da segunda carta:\n");
+
     printf("Estado (A-H): ");
     scanf(" %c", &estado2);
-    
+
     printf("Código da Carta (ex: B02): ");
     scanf("%s", codigo2);
-    
-    while (getchar() != '\n'); // Limpa o buffer do teclado
+
+    while (getchar() != '\n');  // Limpa o buffer do teclado
 
     printf("Nome da Cidade: ");
     scanf("%[^\n]", cidade2);
@@ -73,7 +88,7 @@ int main() {
     printf("Número de Pontos Turísticos: ");
     scanf("%d", &pontos_turisticos2);
 
-    // Exibição das informações das cartas
+    // EXIBIÇÃO DAS CARTAS
     printf("\n=== Carta 1 ===\n");
     printf("Estado: %c\n", estado1);
     printf("Código: %s\n", codigo1);
@@ -92,5 +107,5 @@ int main() {
     printf("PIB: %.2lf bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontos_turisticos2);
 
-    return 0;
+    return 0;  // Indica que o programa terminou com sucesso
 }
